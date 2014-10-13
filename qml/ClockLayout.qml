@@ -4,15 +4,18 @@ Rectangle {
     property string timetext: "00:00"
     property string textColor: "black"
     readonly property string defaulttextColor: "black"
-    property int textPointsize: 16
+    property int maxPixelSize: 20
+    property int textPixelsize: 16
 
     height: parent.height
     width: parent.width
 
     Text{
-        anchors.fill: parent
+        width: parent.width
+        height: parent.height
+
         font.family: "Helvetica"
-        font.pointSize: parent.height*0.45
+        font.pixelSize: parent.width*0.45 - 50
         color: textColor
         horizontalAlignment: TextInput.AlignHCenter
         text: timetext
