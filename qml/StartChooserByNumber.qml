@@ -32,7 +32,7 @@ MyTab{
     Rectangle{
         id: boardfour
         visible: false
-        color: "yellow"
+        //color: "yellow"
         width: height
         height: 260
         anchors.verticalCenter: parent.verticalCenter
@@ -348,6 +348,23 @@ MyTab{
         anchors.horizontalCenter: parent.horizontalCenter
         transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
                  smooth: true
+    }
+
+    Rectangle{
+        id: imagenail
+        visible: true
+        color: "yellow"
+        width: image.width/4
+        height: width
+        z: 2
+        radius: width*0.5
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        gradient: Gradient {
+                 GradientStop { position: 0.0; color: "red" }
+                 GradientStop { position: 0.90; color: "darkred" }
+        }
     }
 
     // The combobox where you can choose which board to show.
