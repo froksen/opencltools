@@ -250,12 +250,12 @@ MyTab{
 
              var randnumber = Math.floor(Math.random() * rs.rows.length) + 1;
 
-             console.log("- First choice: "+randnumber)
+             console.log("- First choice: " + rs.rows.item(randnumber-1).text + " (Index: " + randnumber + ")");
 
              var failsafe = 0
              while(latestChoice == randnumber){
                  randnumber = Math.floor(Math.random() * rs.rows.length) + 1;
-                 console.log("- Used last time, trying with " + randnumber + " instead");
+                 console.log("- Used last time, trying with " + rs.rows.item(randnumber-1).text + " (Index: " + randnumber + ")" + " instead");
                  if(failsafe >=50){
                      console.log ("- Uable to find new number, continueing to prevent freezing..")
                      break;
@@ -263,7 +263,7 @@ MyTab{
                  failsafe++
              }
 
-             console.log("- Final choice: "+randnumber)
+             console.log("- Final choice: "+ rs.rows.item(randnumber-1).text + " (Index: " + randnumber + ")")
 
              latestChoice = randnumber;
 
