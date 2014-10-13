@@ -11,6 +11,7 @@ MyTab{
 
     ClockLayout{
         Row{
+            id: buttonsrow
             width: parent.width
             TouchButton{
                 width: parent.width/2
