@@ -2,7 +2,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 MyTab{
-    property int runningtime: 8*100
+    property int runningtime: 4*1000
 
     id: myTab
     headertext: qsTr("Start chooser (Number)")
@@ -21,7 +21,7 @@ MyTab{
             enabled: timer.running ? false : true
 
             onClicked: {
-                  runningtime = 8*100
+                  runningtime = 4*1000
                   image.rotation = image.rotation*2
                   timer.start()
             }
@@ -409,19 +409,15 @@ MyTab{
 
     Timer{
         id: timer
-        interval: 1; running: false; repeat: true;
+        interval: 25; running: false; repeat: true;
         onTriggered: {
             var randnumber = Math.floor(Math.random() * 360);
             console.log("Random number: " + randnumber)
             image.rotation = randnumber;
             if(runningtime <= 0){
-                /*if(image.rotation == 90 || image.rotation == 180 ||image.rotation == 270 || image.rotation == 360){
-                    image.rotation = image.rotation + 45;
-                }*/
-
                 timer.running = false
             }
-            runningtime--
+            runningtime = runningtime - timer.interval
         }
     }
 
