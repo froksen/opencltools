@@ -63,7 +63,7 @@ MyTab{
                 picker.visible = false;
                 converttotime(myTab.seconds);
                 clock.color = "white";
-                clock.textColor = "red";
+                clock.textColor = clock.defaulttextColor;
             }
         }
         ProgressBar{
@@ -82,7 +82,7 @@ MyTab{
                 converttotime(seconds);
                 progressbar.value = myTab.seconds;
                 if(seconds<10){clock.color = "yellow"; clock.textColor = "red"};
-                if(seconds>10){clock.color = "white"; clock.textColor = "red"};
+                if(seconds>10){clock.color = "white"; clock.textColor = clock.defaulttextColor};
                 if(seconds<=0){clock.color = "red"; clock.textColor = "white"; timerCountdown.stop(); playSound.play();myTab.timestamp = qsTr("STOP")}
             }
     }

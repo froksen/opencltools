@@ -3,6 +3,7 @@ import QtQuick 2.3
 Rectangle {
     property string timetext: "00:00"
     property string textColor: "black"
+    readonly property string defaulttextColor: "black"
     property int textPointsize: 16
 
     height: parent.height

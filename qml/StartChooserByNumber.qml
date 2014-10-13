@@ -412,7 +412,7 @@ MyTab{
         interval: 25; running: false; repeat: true;
         onTriggered: {
             var randnumber = Math.floor(Math.random() * 360);
-            console.log("Random number: " + randnumber)
+            console.log("Rotation angle: " + randnumber)
             image.rotation = randnumber;
             if(runningtime <= 0){
                 timer.running = false
