@@ -24,12 +24,12 @@ Rectangle {
         onWidthChanged: {
             textPixelsize = parent.width*0.45 // Resets the setting
 
-            if(height == font.pixelSize){ //Finds the maxPixelSize
+            /*if(height == font.pixelSize){ //Finds the maxPixelSize
                 maxPixelSize = textPixelsize
                 console.log("maxPixelSize set to: " + maxPixelSize)
                 textPixelsize = textPixelsize + 1
-            }
-            else if(font.pixelSize<maxPixelSize){ //If less than maxPixelSize
+            }*/
+            if(font.pixelSize<maxPixelSize){ //If less than maxPixelSize
                 textPixelsize = parent.width*0.45 - 50
             }
             else if(font.pixelSize>maxPixelSize){ //If greater than maxPixelSize
