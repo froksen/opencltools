@@ -93,13 +93,17 @@
         <source>Restore defaults</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Administration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type the outcome you want and click on &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
-    <message>
-        <source>Open CL Tools</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Files</source>
         <translation type="unfinished"></translation>

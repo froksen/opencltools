@@ -93,6 +93,14 @@
         <source>Restore defaults</source>
         <translation>Gendan standard</translation>
     </message>
+    <message>
+        <source>Administration</source>
+        <translation>Administration</translation>
+    </message>
+    <message>
+        <source>Type the outcome you want and click on &apos;%1&apos;</source>
+        <translation>Skriv den mulighed du vil have og tryk på &apos;%1&apos;</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -126,7 +134,7 @@
     </message>
     <message>
         <source>Open CL Tools</source>
-        <translation>Open CL Værktøjer</translation>
+        <translation type="vanished">Open CL Værktøjer</translation>
     </message>
 </context>
 <context>
