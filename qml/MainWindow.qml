@@ -13,7 +13,9 @@ ApplicationWindow {
     id: mainWindow
     visible: true
     width: 640
+    minimumWidth: 400
     height: 480
+    minimumHeight: minimumWidth
     title: qsTr("Open CL Tools") + " " + windowtitleExtra
 
 
