@@ -9,7 +9,7 @@ Rectangle {
 
     id: adminmodule
     width: parent.width/1.5
-    height: 70
+    height: 100
     visible: false
 
     color: "steelblue"
@@ -24,8 +24,8 @@ Rectangle {
         font.capitalization: Font.AllUppercase
         color: "black"
         horizontalAlignment: TextInput.AlignHCenter
-        text: "Administration"
-        anchors.bottom: rowarea.top
+        text: qsTr("Administration")
+
     }
 
     Rectangle{
@@ -34,6 +34,11 @@ Rectangle {
         z: 2;
         color: adminmodule.color
         visible: false
+
+        Text {
+            font.pointSize: 12
+            text: qsTr("Type the outcome you want and click on '"+addnewAddbutton.text+"'" )
+        }
 
         Rectangle{
             height: 20
@@ -71,8 +76,8 @@ Rectangle {
         Column {
             id: addnewbuttons
             width: parent.width
+            height: 50
             anchors.bottom: parent.bottom
-            height: 45
 
             TouchButton{
                 id: addnewAddbutton
@@ -110,6 +115,8 @@ Rectangle {
         id: rowarea
         width: parent.width
         enabled: true
+        anchors.top: header.bottom
+
         TouchButton{
             width: parent.width/4
             text: qsTr("Add new")
