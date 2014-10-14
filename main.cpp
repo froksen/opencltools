@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     if(translator.load("i18n/"+locale)){
      qDebug() << "- Translation found";
-     app.installTranslator(&translator);
+     //app.installTranslator(&translator);
     }
     else {
         qDebug() << "- Translation not found";
