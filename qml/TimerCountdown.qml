@@ -9,10 +9,25 @@ MyTab{
     property string timestamp: "00:00"
     headertext: qsTr("Countdown timer")
 
+
     ClockLayout{
+        id: clock
+        anchors.top: topsection.bottom
+        timetext: timestamp
+        width: parent.width
+        height: parent.height - topsection.height - buttonsrow.height
+
+        onTimetextChanged: {
+            if(myTab.visible){
+                mainWindow.windowtitleExtra = timestamp;
+            }
+        }
+
         Row{
             id: buttonsrow
             width: parent.width
+            //anchors.top: topsection.bottom
+
             TouchButton{
                 width: parent.width/2
                 text: qsTr("Set")
@@ -39,17 +54,6 @@ MyTab{
             }
         }
 
-        id: clock
-        anchors.top: topsection.bottom
-        timetext: timestamp
-        height:  parent.height-topsection.height
-
-        onTimetextChanged: {
-            if(myTab.visible){
-                mainWindow.windowtitleExtra = timestamp;
-            }
-        }
-
         ClockPicker{
             id: picker
             anchors.verticalCenter: parent.verticalCenter
@@ -67,15 +71,14 @@ MyTab{
                 clock.textColor = clock.defaulttextColor;
             }
         }
-        ProgressBar{
-            id: progressbar
-            anchors.bottom: clock.bottom
-            width: clock.width
-            maximumValue: myTab.secondsatstart
-            value: myTab.seconds
-        }
     }
-
+    ProgressBar{
+        id: progressbar
+        anchors.bottom: myTab.bottom
+        width: clock.width
+        maximumValue: myTab.secondsatstart
+        value: myTab.seconds
+    }
     Timer {
         id: timerCountdown
         interval: 1000; running: false; repeat: true;
