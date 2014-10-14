@@ -16,7 +16,7 @@ ApplicationWindow {
     minimumWidth: 400
     height: 480
     minimumHeight: minimumWidth
-    title: qsTr("Open CL Tools") + " " + windowtitleExtra
+    title: "Open CL Tools" + " " + windowtitleExtra
 
 
     /* The Menubar */

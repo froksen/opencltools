@@ -14,8 +14,8 @@ MyTab{
         id: clock
         anchors.top: topsection.bottom
         timetext: timestamp
-        width: parent.width
-        height: parent.height - topsection.height - buttonsrow.height
+        //width: parent.width
+        height: parent.height-topsection.height
 
         onTimetextChanged: {
             if(myTab.visible){
