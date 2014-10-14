@@ -37,7 +37,7 @@ Rectangle {
 
         Text {
             font.pointSize: 12
-            text: qsTr("Type the outcome you want and click on '"+addnewAddbutton.text+"'" )
+            text: qsTr("Type the outcome you want and click on '%1'").arg(addnewAddbutton.text)
         }
 
         Rectangle{
