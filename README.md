@@ -14,7 +14,8 @@ This program *is not* in any way officially related to the "Cooperative learning
 
 Created by
 -------
-Ole 'froksen' Holm Frandsen froksen gmail com
+* Ole 'froksen' Holm Frandsen
+* froksen gmail com
 
 Requirements for compile and build
 -------
