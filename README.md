@@ -14,11 +14,18 @@ This program *is not* in any way officially related to the "Cooperative learning
 
 Created by
 -------
-Ole 'froksen' Holm Frandsen froksen<on>gmail<dot>com
+Ole 'froksen' Holm Frandsen froksen gmail com
 
 Requirements for compile and build
 -------
-Qt 5.x development enviroment
+* Qt 5.x development enviroment
+* QtMultimedia 5.x
+* QtQuick 2.3 or higher
+* QtQuick Dialogs 1.2 or higher
+* QtQuick Window 2.1 or higher
+* QtQuick Controls 1.2 or higher
+
+Please note, that I have only tried to build it on Windows 7. I should built on all platforms that is supported by Qt.
 
 Supported platforms
 -------

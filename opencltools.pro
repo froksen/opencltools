@@ -29,5 +29,6 @@ include(deployment.pri)
 OTHER_FILES += sounds/*.mp3 \
                images/*.png \
                i18n/*.qm\
+               README.md\
 
 RC_FILE = cltools.rc
