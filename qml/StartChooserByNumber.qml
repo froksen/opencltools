@@ -30,7 +30,7 @@ MyTab{
 
     // Board with four fields/numbers
     Rectangle{
-        id: boardfour
+        //id: boardfour
         visible: false
         //color: "yellow"
         width: height
@@ -253,6 +253,111 @@ MyTab{
 
     }
 
+    // Board with four fields/numbers
+    Rectangle {
+        id:boardfour
+        anchors.top: buttons.bottom
+        width: height
+         height: parent.height/2
+         color: "white"
+         visible: false
+         border.color: "black"
+         border.width: 1
+         radius: width*0.5
+         anchors.verticalCenter: parent.verticalCenter
+         anchors.horizontalCenter: parent.horizontalCenter
+
+             Rectangle{
+                 id: line4one
+                 width: 1
+                 height: boardfour.height/2
+                 anchors.bottom: parent.bottom
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 color: "black"
+                 transform: Rotation {  angle: 45 }
+                          smooth: true
+             }
+             Rectangle{
+                 id: line4two
+                 width: 1
+                 height: boardfour.height/2
+                 anchors.bottom: boardfour.bottom
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 color: "black"
+                 transform: Rotation {  angle: 135 }
+                          smooth: true
+
+             }
+             Rectangle{
+                 id: line4three
+                 width: 1
+                 height: boardfour.height/2
+                 anchors.bottom: boardfour.bottom
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 color: "black"
+                 transform: Rotation {  angle: 225 }
+                          smooth: true
+
+             }
+             Rectangle{
+                 id: line4four
+                 width: 1
+                 height: boardfour.height/2
+                 anchors.bottom: boardfour.bottom
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 color: "black"
+                 transform: Rotation {  angle: 315 }
+                          smooth: true
+
+             }
+
+             Text{
+                 //anchors.bottom: parent.bottom
+                 //anchors.fill: boardcircle
+                 height: parent.height
+                 text: "1"
+                 font.family: "Helvetica"
+                 font.pointSize: 60
+                 anchors.verticalCenter: parent.verticalCenter
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 rotation: 0
+             }
+             Text{
+                 //anchors.bottom: parent.bottom
+                 //anchors.fill: boardcircle
+                 height: parent.height
+                 text: "2"
+                 font.family: "Helvetica"
+                 font.pointSize: 60
+                 anchors.verticalCenter: parent.verticalCenter
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 rotation: 90
+             }
+             Text{
+                 //anchors.bottom: parent.bottom
+                 //anchors.fill: boardcircle
+                 height: parent.height
+                 text: "3"
+                 font.family: "Helvetica"
+                 font.pointSize: 60
+                 anchors.verticalCenter: parent.verticalCenter
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 rotation: 180
+             }
+             Text{
+                 //anchors.bottom: parent.bottom
+                 //anchors.fill: boardcircle
+                 height: parent.height
+                 text: "4"
+                 font.family: "Helvetica"
+                 font.pointSize: 60
+                 anchors.verticalCenter: parent.verticalCenter
+                 anchors.horizontalCenter: parent.horizontalCenter
+                 rotation: 270
+             }
+
+    }
+
     // Board with three fields/numbers
     Rectangle {
         id:boardcirclewiththree
@@ -424,14 +529,17 @@ MyTab{
                 step = (360/5)
                 numberofsteps = Math.floor(Math.random() * 5)
                 rotationangle = step * numberofsteps;
+                break;
             case 1:
                 step = (360/4)
                 numberofsteps = Math.floor(Math.random() * 4)
                 rotationangle = step * numberofsteps;
+                break;
             case 2:
                 step = (360/3)
                 numberofsteps = Math.floor(Math.random() * 3)
                 rotationangle = step * numberofsteps;
+                break;
             }
 
 
