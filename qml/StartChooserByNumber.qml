@@ -453,6 +453,7 @@ MyTab{
         anchors.horizontalCenter: parent.horizontalCenter
         transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
                  smooth: true
+        Behavior on rotation { SmoothedAnimation { velocity: 800 } }
     }
 
     Rectangle{
@@ -522,7 +523,7 @@ MyTab{
 
             var step = 10
             var numberofsteps = 1
-            var rotationangle = 20;
+            var rotationangle = 0;
 
             switch(boardsizecombobox.currentIndex){
             case 0:
