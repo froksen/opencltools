@@ -82,6 +82,7 @@ Window {
                         Text { width: parent.width; font.pixelSize: 12; horizontalAlignment: Text.AlignHCenter; text: '<b>' + name + "</b>"}
                         Text{width: parent.width;text:  contentdescription; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
                         Text { width: parent.width;text: '<b>By:</b> ' + author; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
+                        Text { width: parent.width;text: '<b>Licence:</b> ' + licence; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
                         Text { width: parent.width; text: '<b>Homepage:</b> <a href="' + homepage + '">'+homepage+"</a>"; wrapMode: Text.WrapAnywhere }
                     }
                 }
@@ -90,14 +91,17 @@ Window {
             ListModel{
                 id: creditsModel
 
-                function addCredit(name,contentdescription, author, homepage){
-                    append({"name":name, "contentdescription":contentdescription, "author":author, "homepage":homepage})
+                function addCredit(name,contentdescription, author, licence, homepage){
+                    append({"name":name, "contentdescription":contentdescription, "author":author,"licence":licence, "homepage":homepage})
                 }
             }
 
             Component.onCompleted: {
-                creditsModel.addCredit("Audio: phone-incoming-call/phone-outgoing-busy","Part of the soundtheme 'Fresh and Clean'","mrhmouse","http://gnome-look.org/content/show.php/Fresh+and+Clean?content=123207");
-                creditsModel.addCredit("Image: black_arrow.png","From Wikipedia","Mr. Unknown","http://en.wikipedia.org/wiki/File:Black_Down_Arrow.png");
+                creditsModel.addCredit("Open CL Tools logo", "Based on 'Tutorial Icon' and 'Ecommerce Handshake Icon'. For license and information, see below","anonymous contributor","CC Attribution-Noncommercial-Share Alike 4.0","-");
+                creditsModel.addCredit("Tutorial Icon","","Kyo-Tux","CC Attribution-Noncommercial-Share Alike 4.0","http://www.iconarchive.com/show/soft-icons-by-kyo-tux/Tutorial-icon.html")
+                creditsModel.addCredit("Ecommerce Handshake Icon","The world's largest icon packs for windows 8, ios 7 and android","Icons8","Linkware (http://icons8.com/license/)","http://icons8.com/")
+                creditsModel.addCredit("Audio: phone-incoming-call/phone-outgoing-busy","Part of the soundtheme 'Fresh and Clean'","mrhmouse","GPL","http://gnome-look.org/content/show.php/Fresh+and+Clean?content=123207");
+                creditsModel.addCredit("Image: black_arrow.png","From Wikipedia","Mr. Unknown","Public domain","http://en.wikipedia.org/wiki/File:Black_Down_Arrow.png");
             }
         }
     }

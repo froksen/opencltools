@@ -53,8 +53,6 @@ ApplicationWindow {
             addTab(qsTr("Stopwatch"), tab_stopwatch)
             addTab(qsTr("Start chooser (Thing)"),tab_startchooser)
             addTab(qsTr("Start chooser (Number)"),tab_startchooserbynumber)
-
-            aboutdialog.open()
          }
 
         onCurrentIndexChanged: {
