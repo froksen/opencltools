@@ -83,7 +83,9 @@ Window {
                         Text{width: parent.width;text:  contentdescription; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
                         Text { width: parent.width;text: '<b>By:</b> ' + author; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
                         Text { width: parent.width;text: '<b>Licence:</b> ' + licence; wrapMode: Text.WrapAtWordBoundaryOrAnywhere}
-                        Text { width: parent.width; text: '<b>Homepage:</b> <a href="' + homepage + '">'+homepage+"</a>"; wrapMode: Text.WrapAnywhere }
+                        Text { width: parent.width; text: '<b>Homepage:</b> <a href="' + homepage + '">'+homepage+"</a>"; wrapMode: Text.WrapAnywhere
+                            onLinkActivated: {Qt.openUrlExternally(link)}
+                        }
                     }
                 }
             }
