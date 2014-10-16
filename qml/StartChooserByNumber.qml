@@ -411,9 +411,34 @@ MyTab{
         id: timer
         interval: 25; running: false; repeat: true;
         onTriggered: {
-            var randnumber = Math.floor(Math.random() * 360);
-            console.log("Rotation angle: " + randnumber)
-            image.rotation = randnumber;
+            //var randnumber = Math.floor(Math.random() * 360);
+            //console.log("Rotation angle: " + randnumber)
+            //image.rotation = randnumber;
+
+            var step = 10
+            var numberofsteps = 1
+            var rotationangle = 20;
+
+            switch(boardsizecombobox.currentIndex){
+            case 0:
+                step = (360/5)
+                numberofsteps = Math.floor(Math.random() * 5)
+                rotationangle = step * numberofsteps;
+            case 1:
+                step = (360/4)
+                numberofsteps = Math.floor(Math.random() * 4)
+                rotationangle = step * numberofsteps;
+            case 2:
+                step = (360/3)
+                numberofsteps = Math.floor(Math.random() * 3)
+                rotationangle = step * numberofsteps;
+            }
+
+
+
+            console.log(rotationangle)
+            image.rotation = rotationangle;
+
             if(runningtime <= 0){
                 timer.running = false
             }
