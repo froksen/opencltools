@@ -456,13 +456,13 @@ MyTab{
         anchors.horizontalCenter: parent.horizontalCenter
         transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
                  smooth: true
-        Behavior on rotation { SmoothedAnimation { velocity: 1000 } }
+        Behavior on rotation { id: animationImage; SmoothedAnimation { velocity: 1500 } }
     }
 
     Rectangle{
         id: imagenail
         visible: true
-        color: "yellow"
+        color: "red"
         width: image.width/4
         height: width
         z: 2
@@ -501,8 +501,10 @@ MyTab{
             }
 
             //Resets the image rotation
+            animationImage.enabled = false; //Disables the smooth animation, for faster reset
             image.rotation = 0
             image.mRotation = 0
+            animationImage.enabled = true; //Enables the smooth animation again
 
         }
 
@@ -548,11 +550,12 @@ MyTab{
 
             //Setting the angle that the arrow should have. To be true, I really dont know why this works as it does.
             if(runningtime <= timer.interval){
-                image.mRotation = Math.floor(image.mRotation + rotationangle)
+                image.mRotation = image.mRotation + rotationangle
             }
             else {
                 image.mRotation = Math.floor(image.mRotation + step);
             }
+
 
             //Setting the new rotation
             image.rotation = image.mRotation;
@@ -566,6 +569,7 @@ MyTab{
         }
     }
 
+    //Creating the background effect
     gradient: Gradient {
              GradientStop { position: 0.0; color: "#669900" }
              GradientStop { position: 0.90; color: "#006600" }
