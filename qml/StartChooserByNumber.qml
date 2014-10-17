@@ -2,7 +2,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 MyTab{
-    property int runningtime: 4*1000
+    property int runningtime: 2*1000
 
     id: myTab
     headertext: qsTr("Start chooser (Number)")
@@ -21,7 +21,7 @@ MyTab{
             enabled: timer.running ? false : true
 
             onClicked: {
-                  runningtime = 4*1000
+                  runningtime = 2*1000
                   image.rotation = image.rotation*2
                   timer.start()
             }
@@ -443,17 +443,20 @@ MyTab{
 
     // The arrow
     Image{
+        property real mRotation: 0
+
         id: image
         visible: true
         source: "../images/black_arrow.png";
         width: boardcircle.height/3.5
         height: boardcircle.height/2
         z: 1
+        rotation: 0
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
                  smooth: true
-        Behavior on rotation { SmoothedAnimation { velocity: 800 } }
+        Behavior on rotation { SmoothedAnimation { velocity: 1000 } }
     }
 
     Rectangle{
@@ -497,6 +500,10 @@ MyTab{
                 boardcirclewiththree.visible = true
             }
 
+            //Resets the image rotation
+            image.rotation = 0
+            image.mRotation = 0
+
         }
 
          property var mmodel: [
@@ -517,37 +524,41 @@ MyTab{
         id: timer
         interval: 25; running: false; repeat: true;
         onTriggered: {
-            //var randnumber = Math.floor(Math.random() * 360);
-            //console.log("Rotation angle: " + randnumber)
-            //image.rotation = randnumber;
-
-            var step = 10
-            var numberofsteps = 1
+            var step = 0
+            var numberofsteps = 0
             var rotationangle = 0;
 
             switch(boardsizecombobox.currentIndex){
             case 0:
-                step = (360/5)
+                step = 360/5 // For five fields
                 numberofsteps = Math.floor(Math.random() * 5)
-                rotationangle = step * numberofsteps;
+                rotationangle = Math.floor(step * numberofsteps);
                 break;
             case 1:
-                step = (360/4)
+                step = (360/4) // For four fields
                 numberofsteps = Math.floor(Math.random() * 4)
                 rotationangle = step * numberofsteps;
                 break;
             case 2:
-                step = (360/3)
+                step = (360/3) // For three fields
                 numberofsteps = Math.floor(Math.random() * 3)
                 rotationangle = step * numberofsteps;
                 break;
             }
 
+            //Setting the angle that the arrow should have. To be true, I really dont know why this works as it does.
+            if(runningtime <= timer.interval){
+                image.mRotation = Math.floor(image.mRotation + rotationangle)
+            }
+            else {
+                image.mRotation = Math.floor(image.mRotation + step);
+            }
+
+            //Setting the new rotation
+            image.rotation = image.mRotation;
 
 
-            console.log(rotationangle)
-            image.rotation = rotationangle;
-
+            //Checking if it should stop the timer
             if(runningtime <= 0){
                 timer.running = false
             }
