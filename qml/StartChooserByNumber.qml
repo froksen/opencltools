@@ -23,7 +23,7 @@ MyTab{
             enabled: timer.running ? false : true
 
             onClicked: {
-                  runningtime = 1*1000
+                  runningtime = 0.5*1000
                 timer.start()
             }
         }
@@ -539,19 +539,18 @@ MyTab{
             case 0:
                 step = Math.floor(360/5) // For five fields
                 numberofsteps = Math.floor(Math.random() * 5)
-                rotationangle = Math.floor(step * numberofsteps);
                 break;
             case 1:
                 step = (360/4) // For four fields
                 numberofsteps = Math.floor(Math.random() * 4)
-                rotationangle = step * numberofsteps;
                 break;
             case 2:
                 step = (360/3) // For three fields
                 numberofsteps = Math.floor(Math.random() * 3)
-                rotationangle = step * numberofsteps;
                 break;
             }
+            //Sets the rotation that will be used when 'runningtime' is less than timer interval
+            rotationangle = Math.floor(step * numberofsteps);
 
             //Setting the angle that the arrow should have. To be true, I really dont know why this works as it does.
             if(runningtime <= timer.interval){
