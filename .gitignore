@@ -17,6 +17,10 @@ $RECYCLE.BIN/
 #Ignore Qt user files
 *.user
 
+#Ingore release and debug folders, that are created by Qt Creator
+release/
+debug/
+
 # =========================
 # Operating System Files
 # =========================
