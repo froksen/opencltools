@@ -41,7 +41,7 @@ MyTab{
 
         id: clock
         anchors.top: topsection.bottom
-        timetext: timestamp
+        timetext: converttotime(seconds)
         height: parent.height-topsection.height
 
         onTimetextChanged: {
@@ -55,7 +55,6 @@ MyTab{
         id: timer
         interval: 1000; running: false; repeat: true;
         onTriggered: {seconds++;
-                converttotime(seconds);
                 }
     }
 
@@ -68,7 +67,6 @@ MyTab{
         //var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
         var result = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
         console.log(result);
-        timestamp = result;
         return result;
     }
 
