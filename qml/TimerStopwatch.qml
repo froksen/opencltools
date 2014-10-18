@@ -48,24 +48,13 @@ MyTab{
                 mainWindow.windowtitleExtra = timestamp;
             }
         }
-
-
-        ProgressBar{
-            id: progressbar
-            anchors.bottom: clock.bottom
-            width: clock.width
-            maximumValue: 1
-            value: 0
-            visible: false
-        }
     }
 
     Timer {
         id: timer
         interval: 1000; running: false; repeat: true;
         onTriggered: {seconds++;
-                converttotime(seconds); if(progressbar.value == 0){ progressbar.value = 1}else {progressbar.value = 0}
-
+                converttotime(seconds);
                 }
     }
 
