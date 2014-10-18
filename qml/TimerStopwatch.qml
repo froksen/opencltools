@@ -6,6 +6,7 @@ MyTab{
     property int secondsatstart: 1
     property int seconds : 0
     property string timestamp: "00:00"
+    property int milisecs: 0
     headertext: qsTr("Stopwatch")
 
     ClockLayout{
