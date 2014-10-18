@@ -99,7 +99,7 @@ Window {
             }
 
             Component.onCompleted: {
-                creditsModel.addCredit("Open CL Tools logo", "Based on 'Tutorial Icon' and 'Ecommerce Handshake Icon'. For license and information, see below","anonymous contributor","CC Attribution-Noncommercial-Share Alike 4.0","-");
+                creditsModel.addCredit("Open CL Tools logo", "Based on 'Tutorial Icon' and 'Ecommerce Handshake Icon'. For license and information, see below","gnastyle","CC Attribution-Noncommercial-Share Alike 4.0","-");
                 creditsModel.addCredit("Tutorial Icon","","Kyo-Tux","CC Attribution-Noncommercial-Share Alike 4.0","http://www.iconarchive.com/show/soft-icons-by-kyo-tux/Tutorial-icon.html")
                 creditsModel.addCredit("Ecommerce Handshake Icon","The world's largest icon packs for windows 8, ios 7 and android","Icons8","Linkware (http://icons8.com/license/)","http://icons8.com/")
                 creditsModel.addCredit("Audio: phone-incoming-call/phone-outgoing-busy","Part of the soundtheme 'Fresh and Clean'","mrhmouse","GPL","http://gnome-look.org/content/show.php/Fresh+and+Clean?content=123207");
