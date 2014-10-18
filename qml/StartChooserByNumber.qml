@@ -2,7 +2,8 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 MyTab{
-    property int runningtime: 2*1000
+    property int runningtime: 0
+    property bool arrowrotating: false
 
     id: myTab
     headertext: qsTr("Start chooser (Number)")
@@ -16,14 +17,14 @@ MyTab{
         width: parent.width
 
         TouchButton{
+            id: newOutcomeButton
             width: parent.width
             text: qsTr("New outcome")
             enabled: timer.running ? false : true
 
             onClicked: {
-                  runningtime = 2*1000
-                  image.rotation = image.rotation*2
-                  timer.start()
+                  runningtime = 1*1000
+                timer.start()
             }
         }
     }
@@ -443,7 +444,7 @@ MyTab{
 
     // The arrow
     Image{
-        property real mRotation: 0
+        property int mRotation: 0
 
         id: image
         visible: true
@@ -456,7 +457,10 @@ MyTab{
         anchors.horizontalCenter: parent.horizontalCenter
         transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
                  smooth: true
-        Behavior on rotation { id: animationImage; SmoothedAnimation { velocity: 1500 } }
+        Behavior on rotation { id: animationImage; animation: SmoothedAnimation { id: animasmo; velocity: 1500; }}
+        onMRotationChanged: {
+            rotation = mRotation
+        }
     }
 
     Rectangle{
@@ -481,8 +485,8 @@ MyTab{
         id: boardsizecombobox
         anchors.top: buttons.bottom
         editable: false
-        model:mmodel
         enabled: timer.running ? false : true
+        model:mmodel
         width: 100
         height: 40
         onCurrentTextChanged: {
@@ -526,13 +530,14 @@ MyTab{
         id: timer
         interval: 25; running: false; repeat: true;
         onTriggered: {
+            //Clears the variables
             var step = 0
             var numberofsteps = 0
             var rotationangle = 0;
 
             switch(boardsizecombobox.currentIndex){
             case 0:
-                step = 360/5 // For five fields
+                step = Math.floor(360/5) // For five fields
                 numberofsteps = Math.floor(Math.random() * 5)
                 rotationangle = Math.floor(step * numberofsteps);
                 break;
@@ -553,13 +558,20 @@ MyTab{
                 image.mRotation = image.mRotation + rotationangle
             }
             else {
-                image.mRotation = Math.floor(image.mRotation + step);
+                image.mRotation = image.mRotation + step;
             }
 
 
             //Setting the new rotation
             image.rotation = image.mRotation;
 
+            /*
+            //Debugging output
+            console.log("Image rotation: " + image.rotation)
+            console.log("mRotation: " + image.mRotation)
+            console.log("Step: " + step)
+            console.log("Rotationangle: " + rotationangle)
+            */
 
             //Checking if it should stop the timer
             if(runningtime <= 0){
