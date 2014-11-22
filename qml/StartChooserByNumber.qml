@@ -64,9 +64,11 @@ MyTab{
     function calulateStep(maxStep){
         var randomnumber = Math.floor(Math.random() * maxStep);
 
-        while( randomnumber == image.previousrotation){
-            randomnumber = Math.floor(Math.random() * maxStep)
-            console.log("Number " + randomnumber + " was previous outcome, finding new.")
+        if(!checkoutSameoutcome.checked){
+            while( randomnumber == image.previousrotation){
+                randomnumber = Math.floor(Math.random() * maxStep)
+                console.log("Number " + randomnumber + " was previous outcome, finding new.")
+            }
         }
 
         return randomnumber;
@@ -571,7 +573,14 @@ MyTab{
                 ]
     }
 
+    CheckBox{
+        id: checkoutSameoutcome
+        anchors.top: boardsizecombobox.bottom
+        width: 100
+        text: qsTr("Allow the same outcome \nto appear twice.")
+        checked: false
 
+    }
 
     //Creating the background effect
     gradient: Gradient {
