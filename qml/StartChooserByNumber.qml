@@ -40,11 +40,11 @@ MyTab{
                     break;
                 case 1:
                     step = (360/4) // For four fields
-                    numberofsteps = Math.floor(Math.random() * 4)
+                    numberofsteps = calulateStep(4)
                     break;
                 case 2:
                     step = (360/3) // For three fields
-                    numberofsteps = Math.floor(Math.random() * 3)
+                    numberofsteps = calulateStep(3)
                     break;
                 }
                 //Sets the rotation
