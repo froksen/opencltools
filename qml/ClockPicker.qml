@@ -7,7 +7,7 @@ Rectangle {
 
     id: picker
     width: 280
-    height: 225
+    height: 240
     color: "steelblue"
     anchors.centerIn: parent
 
@@ -87,11 +87,27 @@ Rectangle {
                 okclicked()
             }
         }
-        TouchButton{
-            text: qsTr("Cancel")
-            onClicked: {
-                picker.visible = false;
+        Row{
+            height: 40
+            width: parent.width
+            TouchButton{
+                text: qsTr("Cancel")
+                width: parent.width*3/4
+                onClicked: {
+                    picker.visible = false;
+                }
+            }
+            TouchButton{
+                text: qsTr("Reset")
+                width: parent.width*1/4
+                onClicked: {
+                    picker.visible = true;
+                    secondsSpinner.setValue = 0;
+                    minutsSpinner.setValue = 0;
+
+                }
             }
         }
+
     }
  }

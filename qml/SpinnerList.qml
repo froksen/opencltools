@@ -3,6 +3,7 @@ import QtQuick 2.3
 Rectangle {
     property int spinnermodel: 10
     property int value: list.currentIndex
+    property int setValue: 0
 
     width: parent.width
     height: width
@@ -21,6 +22,7 @@ Rectangle {
             id: list
             anchors.fill: parent
             clip: true
+            currentIndex: setValue
 
             snapMode: ListView.SnapToItem
             model: spinnermodel
@@ -40,7 +42,7 @@ Rectangle {
             }
 
             //onCurrentIndexChanged: console.log("Spinner index set to: " + Math.round(list.visibleArea.yPosition * list.count))
-            onMovementEnded: list.currentIndex = Math.round(list.visibleArea.yPosition * list.count)
+            onMovementEnded: setValue = Math.round(list.visibleArea.yPosition * list.count)
 
             // Workaround: Compute visibleArea
             Component.onCompleted: list.visibleArea
