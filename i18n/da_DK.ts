@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Credits</source>
-        <translation>Bidragydere</translation>
+        <translation type="vanished">Bidragydere</translation>
     </message>
 </context>
 <context>
@@ -158,6 +158,11 @@
     <message>
         <source>3 fields</source>
         <translation>3 felter</translation>
+    </message>
+    <message>
+        <source>Allow the same outcome 
+to appear twice.</source>
+        <translation>Tillad det samme udfald to gange.</translation>
     </message>
 </context>
 <context>

@@ -19,10 +19,6 @@
         <source>Licence</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Credits</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ClockPicker</name>
@@ -153,6 +149,11 @@
     </message>
     <message>
         <source>3 fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow the same outcome 
+to appear twice.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
