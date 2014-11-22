@@ -20,7 +20,6 @@ MyTab{
             id: newOutcomeButton
             width: parent.width
             text: qsTr("New outcome")
-            enabled: timer.running ? false : true
 
             onClicked: {
                 //Resets the image rotation
@@ -48,7 +47,7 @@ MyTab{
                     numberofsteps = Math.floor(Math.random() * 3)
                     break;
                 }
-                //Sets the rotation that will be used when 'runningtime' is less than timer interval
+                //Sets the rotation
                 rotationangle = Math.floor(step * numberofsteps);
 
                 //Setting the angle that the arrow should have.
@@ -533,7 +532,6 @@ MyTab{
         id: boardsizecombobox
         anchors.top: buttons.bottom
         editable: false
-        enabled: timer.running ? false : true
         model:mmodel
         width: 100
         height: 40
@@ -574,63 +572,6 @@ MyTab{
     }
 
 
-    Timer{
-        id: timer
-        interval: 25; running: false; repeat: true;
-        onTriggered: {
-            //Clears the variables
-            var step = 0
-            var numberofsteps = 0
-            var rotationangle = 0;
-
-            switch(boardsizecombobox.currentIndex){
-            case 0:
-                step = Math.floor(360/5) // For five fields
-                numberofsteps = Math.floor(Math.random() * 5)
-                break;
-            case 1:
-                step = (360/4) // For four fields
-                numberofsteps = Math.floor(Math.random() * 4)
-                break;
-            case 2:
-                step = (360/3) // For three fields
-                numberofsteps = Math.floor(Math.random() * 3)
-                break;
-            }
-            //Sets the rotation that will be used when 'runningtime' is less than timer interval
-            rotationangle = Math.floor(step * numberofsteps);
-
-            //Setting the angle that the arrow should have.
-            image.tmpRotation = Math.round(image.tmpRotation + step);
-
-            if(image.tmpRotation >= 360){
-                image.tmpRotation = image.tmpRotation - 360
-            }
-
-
-
-           if(runningtime <= 0){
-               while(rotationangle == image.previousrotation){
-                   rotationangle = rotationangle + step
-                   console.log("The rotation is the same as previous. To prevent having the same outcome, the program will now add " + step + " degrees to rotation")
-               }
-
-               image.rotation = rotationangle;
-                image.previousrotation =  rotationangle;
-
-
-            }
-
-           image.rotation = image.tmpRotation
-
-
-            //Checking if it should stop the timer
-            if(runningtime <= 0){
-                timer.running = false
-            }
-            runningtime = runningtime - timer.interval
-        }
-    }
 
     //Creating the background effect
     gradient: Gradient {
