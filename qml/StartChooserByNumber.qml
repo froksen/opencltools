@@ -23,10 +23,54 @@ MyTab{
             enabled: timer.running ? false : true
 
             onClicked: {
-                  runningtime = 0.5*1000
-                timer.start()
+                //Resets the image rotation
+                animationImage.enabled = false; //Disables the smooth animation, for faster reset
+                image.rotation = 0
+                animationImage.enabled = true; //Enables the smooth animation again
+
+
+                //Clears the variables
+                var step = 0
+                var numberofsteps = 0
+                var rotationangle = 0;
+
+                switch(boardsizecombobox.currentIndex){
+                case 0:
+                    step = Math.floor(360/5) // For five fields
+                    numberofsteps = calulateStep(5);
+                    break;
+                case 1:
+                    step = (360/4) // For four fields
+                    numberofsteps = Math.floor(Math.random() * 4)
+                    break;
+                case 2:
+                    step = (360/3) // For three fields
+                    numberofsteps = Math.floor(Math.random() * 3)
+                    break;
+                }
+                //Sets the rotation that will be used when 'runningtime' is less than timer interval
+                rotationangle = Math.floor(step * numberofsteps);
+
+                //Setting the angle that the arrow should have.
+                image.rotation = rotationangle + 1440
+
+                //Storing the current rotation to prevent it from happening again.
+                image.previousrotation = numberofsteps
+
             }
         }
+    }
+
+    //Finds a random number between 0 and "maxStep". If number is equal "previousrotation" then it will try again
+    function calulateStep(maxStep){
+        var randomnumber = Math.floor(Math.random() * maxStep);
+
+        while( randomnumber == image.previousrotation){
+            randomnumber = Math.floor(Math.random() * maxStep)
+            console.log("Number " + randomnumber + " was previous outcome, finding new.")
+        }
+
+        return randomnumber;
     }
 
     // Board with four fields/numbers
@@ -442,26 +486,30 @@ MyTab{
 
     }
 
-    // The arrow
-    Image{
-        property int mRotation: 0
+    //The Arrow
+    Image {
+        property int previousrotation: -1
 
         id: image
         visible: true
         source: "../images/black_arrow.png";
         width: boardcircle.height/3.5
-        height: boardcircle.height/2
         z: 1
         rotation: 0
+        height: boardcircle.height/2
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        transform: Rotation {  origin.x: myTab.x/2; origin.y: myTab.y/2; angle: 0 }
-                 smooth: true
-        Behavior on rotation { id: animationImage; animation: SmoothedAnimation { id: animasmo; velocity: 1500; }}
-        onMRotationChanged: {
-            rotation = mRotation
+
+        Behavior on rotation {
+            id: animationImage
+            SmoothedAnimation{
+                velocity: 1500;
+
+            }
         }
     }
+
+
 
     Rectangle{
         id: imagenail
@@ -507,7 +555,7 @@ MyTab{
             //Resets the image rotation
             animationImage.enabled = false; //Disables the smooth animation, for faster reset
             image.rotation = 0
-            image.mRotation = 0
+            image.previousrotation = -1
             animationImage.enabled = true; //Enables the smooth animation again
 
         }
@@ -552,25 +600,29 @@ MyTab{
             //Sets the rotation that will be used when 'runningtime' is less than timer interval
             rotationangle = Math.floor(step * numberofsteps);
 
-            //Setting the angle that the arrow should have. To be true, I really dont know why this works as it does.
-            if(runningtime <= timer.interval){
-                image.mRotation = image.mRotation + rotationangle
+            //Setting the angle that the arrow should have.
+            image.tmpRotation = Math.round(image.tmpRotation + step);
+
+            if(image.tmpRotation >= 360){
+                image.tmpRotation = image.tmpRotation - 360
             }
-            else {
-                image.mRotation = image.mRotation + step;
+
+
+
+           if(runningtime <= 0){
+               while(rotationangle == image.previousrotation){
+                   rotationangle = rotationangle + step
+                   console.log("The rotation is the same as previous. To prevent having the same outcome, the program will now add " + step + " degrees to rotation")
+               }
+
+               image.rotation = rotationangle;
+                image.previousrotation =  rotationangle;
+
+
             }
 
+           image.rotation = image.tmpRotation
 
-            //Setting the new rotation
-            image.rotation = image.mRotation;
-
-            /*
-            //Debugging output
-            console.log("Image rotation: " + image.rotation)
-            console.log("mRotation: " + image.mRotation)
-            console.log("Step: " + step)
-            console.log("Rotationangle: " + rotationangle)
-            */
 
             //Checking if it should stop the timer
             if(runningtime <= 0){
