@@ -51,7 +51,7 @@ MyTab{
         TouchButton{
             id: buttonNewchoice
             width: parent.width/2
-            text: qsTr("New choice")
+            text: qsTr("New outcome")
 
             onClicked: {
                 blinkingTimer.start();

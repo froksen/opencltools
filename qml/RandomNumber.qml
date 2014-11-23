@@ -4,9 +4,8 @@ import QtMultimedia 5.0
 
 MyTab{
     id: myTab
-    property int secondsatstart: 1
-    property int seconds : picker.selectedtime
     headertext: qsTr("Random Number")
+    property int prevouiousOutcome: -1
 
 
     ClockLayout{
@@ -14,6 +13,30 @@ MyTab{
         anchors.top: topsection.bottom
         height: parent.height-topsection.height
         timetext: "1"
+
+        Row{
+            id: buttonsrow
+            width: parent.width
+            //anchors.top: topsection.bottom
+
+            TouchButton{
+                width: parent.width/2
+                text: qsTr("Set Interval")
+
+                onClicked: {
+                    picker.visible = true
+                }
+            }
+            TouchButton{
+                width: parent.width/2
+                text: qsTr("New outcome")
+                enabled: fromNumberSpinner.value<toNumberSpinner.value ? true : false
+
+                onClicked: {
+                    newOutcome();
+                }
+            }
+        }
     }
 
 
@@ -85,17 +108,7 @@ MyTab{
                 text: qsTr("OK")
 
                 onClicked: {
-                    if(fromNumberSpinner.value<toNumberSpinner.value){
-                        console.log("Interval set from "+fromNumberSpinner.value +" to " + toNumberSpinner.value)
-                        clockText.timetext = findRandomNumber(fromNumberSpinner.value,toNumberSpinner.value)
-                        picker.visible = false
-                        errorinterval.visible = false;
-                    }
-                    else{
-                        console.log("Error: The <b>to value</b> must be greater than the <b>from value</b>.")
-                        errorinterval.visible = true
-                    }
-
+                    newOutcome();
                 }
             }
             Row{
@@ -136,6 +149,20 @@ MyTab{
 
      }
 
+
+    function newOutcome(){
+        if(fromNumberSpinner.value<toNumberSpinner.value){
+            console.log("Interval set from "+fromNumberSpinner.value +" to " + toNumberSpinner.value)
+            clockText.timetext = findRandomNumber(fromNumberSpinner.value,toNumberSpinner.value)
+            picker.visible = false
+            errorinterval.visible = false;
+        }
+        else{
+            console.log("Error: The <b>to value</b> must be greater than the <b>from value</b>.")
+            errorinterval.visible = true
+        }
+    }
+
     function findRandomNumber(fromNumber, toNumber){
         console.log("Finding random number between "+ fromNumber + " and " + toNumber)
 
@@ -145,6 +172,13 @@ MyTab{
         }
 
         var randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+
+        while(prevouiousOutcome == randomNumber){
+            console.log("Outcome: " + randomNumber + " has was also the previous outcome. Finding new"  )
+            randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+        }
+
+        prevouiousOutcome = randomNumber;
 
         console.log("Found randomnumber: " + randomNumber  )
 
