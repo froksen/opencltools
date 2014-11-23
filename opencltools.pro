@@ -4,7 +4,7 @@ TARGET = opencltools
 
 QT += qml quick widgets
 
-Qt -= gui
+QT -= gui
 
 SOURCES += main.cpp
 
@@ -12,7 +12,6 @@ lupdate_only{
     SOURCES =  qml/*.qml \
                qml/settingsdialog/*.qml\
                qml/aboutdialog/*.qml\
-
 }
 
 TRANSLATIONS =  i18n/base.ts\
@@ -29,6 +28,6 @@ include(deployment.pri)
 OTHER_FILES += sounds/*.mp3 \
                images/*.png \
                i18n/*.qm\
-               README.md\
+               README.md \
 
 RC_FILE = cltools.rc

@@ -49,6 +49,7 @@ ApplicationWindow {
         id: tabView
 
         Component.onCompleted: {
+            addTab(qsTr("Random number"), tab_randomnumber)
             addTab(qsTr("Countdown timer"), tab_countdowntimer)
             addTab(qsTr("Stopwatch"), tab_stopwatch)
             addTab(qsTr("Start chooser (Thing)"),tab_startchooser)
@@ -81,6 +82,12 @@ ApplicationWindow {
         Component{
             id:tab_startchooserbynumber
             StartChooserByNumber{
+
+            }
+        }
+        Component{
+            id: tab_randomnumber
+            RandomNumber{
 
             }
         }
