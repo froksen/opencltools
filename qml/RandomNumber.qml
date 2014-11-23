@@ -148,7 +148,7 @@ MyTab{
                 width: parent.width
                 height: 25
                 color: "red"
-                visible: fromNumberSpinner.value>toNumberSpinner.value ? true : false
+                visible: fromNumberSpinner.value>=toNumberSpinner.value ? true : false
 
                 Text{
                     color: "white"
