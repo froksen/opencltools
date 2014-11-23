@@ -37,7 +37,17 @@ MyTab{
                 }
             }
         }
+
+        CheckBox{
+            id: checkoutSameoutcome
+            anchors.top: buttonsrow.bottom
+            width: 100
+            text: qsTr("Allow the same outcome \nto appear twice.")
+            checked: false
+        }
     }
+
+
 
 
     //---------------------The Picker element---------------------
@@ -173,9 +183,11 @@ MyTab{
 
         var randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
 
-        while(prevouiousOutcome == randomNumber){
-            console.log("Outcome: " + randomNumber + " has was also the previous outcome. Finding new"  )
-            randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+        if(!checkoutSameoutcome.checked){
+            while(prevouiousOutcome == randomNumber){
+                console.log("Outcome: " + randomNumber + " has was also the previous outcome. Finding new"  )
+                randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+            }
         }
 
         prevouiousOutcome = randomNumber;
