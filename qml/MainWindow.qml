@@ -49,11 +49,11 @@ ApplicationWindow {
         id: tabView
 
         Component.onCompleted: {
-            addTab(qsTr("Random number"), tab_randomnumber)
             addTab(qsTr("Countdown timer"), tab_countdowntimer)
             addTab(qsTr("Stopwatch"), tab_stopwatch)
             addTab(qsTr("Start chooser (Thing)"),tab_startchooser)
             addTab(qsTr("Start chooser (Number)"),tab_startchooserbynumber)
+            addTab(qsTr("Random number"), tab_randomnumber)
          }
 
         onCurrentIndexChanged: {

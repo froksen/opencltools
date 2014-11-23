@@ -116,6 +116,7 @@ MyTab{
                 width: parent.width
                 height: 40
                 text: qsTr("OK")
+                enabled: fromNumberSpinner.value<toNumberSpinner.value ? true : false
 
                 onClicked: {
                     newOutcome();
@@ -147,7 +148,7 @@ MyTab{
                 width: parent.width
                 height: 25
                 color: "red"
-                visible: false;
+                visible: fromNumberSpinner.value>toNumberSpinner.value ? true : false
 
                 Text{
                     color: "white"
