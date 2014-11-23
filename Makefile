@@ -176,10 +176,10 @@ Makefile: opencltools.pro C:/Qt/Qt5.3.1/5.3/mingw482_32/mkspecs/win32-g++/qmake.
 		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/qtmain.prl \
 		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Core.prl \
 		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Quick.prl \
-		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Qml.prl \
 		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Widgets.prl \
-		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Network.prl \
-		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Gui.prl
+		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Qml.prl \
+		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Gui.prl \
+		C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Network.prl
 	$(QMAKE) -spec win32-g++ -o Makefile opencltools.pro
 C:\Qt\Qt5.3.1\5.3\mingw482_32\mkspecs\features\spec_pre.prf:
 C:\Qt\Qt5.3.1\5.3\mingw482_32\mkspecs\qdevice.pri:
@@ -298,10 +298,10 @@ opencltools.pro:
 C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/qtmain.prl:
 C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Core.prl:
 C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Quick.prl:
-C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Qml.prl:
 C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Widgets.prl:
-C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Network.prl:
+C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Qml.prl:
 C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Gui.prl:
+C:/Qt/Qt5.3.1/5.3/mingw482_32/lib/Qt5Network.prl:
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile opencltools.pro
 

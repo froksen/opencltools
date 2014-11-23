@@ -6,107 +6,149 @@ MyTab{
     id: myTab
     property int secondsatstart: 1
     property int seconds : picker.selectedtime
-    property string timestamp: "00:00"
-    headertext: qsTr("Countdown timer")
+    headertext: qsTr("Random Number")
 
 
     ClockLayout{
-        id: clock
+        id: clockText
         anchors.top: topsection.bottom
-        timetext: timestamp
-        //width: parent.width
         height: parent.height-topsection.height
+        timetext: "1"
+    }
 
-        onTimetextChanged: {
-            if(myTab.visible){
-                mainWindow.windowtitleExtra = timestamp;
-            }
-        }
 
-        Row{
-            id: buttonsrow
+    //---------------------The Picker element---------------------
+    Rectangle {
+        property int selectedtime: 0
+        signal okclicked
+
+        id: picker
+        width: 280
+        height: 240
+        color: "steelblue"
+        anchors.centerIn: parent
+
+        Row {
+            id: spinners
             width: parent.width
-            //anchors.top: topsection.bottom
-
-            TouchButton{
-                width: parent.width/2
-                text: qsTr("Set")
-
-                onClicked: {
-                    picker.visible = true
-                    timerCountdown.stop()
-                }
-            }
-            TouchButton{
-                width: parent.width/2
-                text: qsTr("Start/Pause")
-
-                onClicked: {
-                    if(timerCountdown.running){
-                            timerCountdown.stop()
-                    }
-                    else {
-                        if(!seconds<=0){
-                            timerCountdown.start()
-                         }
-                    }
-                }
-            }
-        }
-
-        ClockPicker{
-            id: picker
-            anchors.verticalCenter: parent.verticalCenter
+            height: 150
             anchors.horizontalCenter: parent.horizontalCenter
-            visible: false
 
-            onOkclicked:{
-                if(selectedtime>0){
-                    myTab.secondsatstart = selectedtime;
+            Column{
+                height: parent.height
+                width: parent.width*2/5
+
+                Text{
+                    id: fromNumberText
+                    width: parent.width
+                    text: qsTr("From")
+                    font.pixelSize: 16
+                    horizontalAlignment: Text.AlignHCenter
                 }
-                myTab.seconds = selectedtime;
-                picker.visible = false;
-                converttotime(myTab.seconds);
-                clock.color = "white";
-                clock.textColor = clock.defaulttextColor;
+                SpinnerList{
+                    id: fromNumberSpinner
+                    width: parent.width
+                    spinnermodel: 99
+                }
+
+            }
+
+
+            Column{
+                height: parent.height
+                width: parent.width*2/5
+                anchors.right: parent.right
+
+                Text{
+                    width: parent.width
+                    text: qsTr("To")
+                    font.pixelSize: 16
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                SpinnerList{
+                    id: toNumberSpinner
+                    width: parent.width
+                    spinnermodel: 99
+                }
             }
         }
-    }
-    ProgressBar{
-        id: progressbar
-        anchors.bottom: myTab.bottom
-        width: clock.width
-        maximumValue: myTab.secondsatstart
-        value: myTab.seconds
-    }
-    Timer {
-        id: timerCountdown
-        interval: 1000; running: false; repeat: true;
-        onTriggered: {seconds--;
-                converttotime(seconds);
-                progressbar.value = myTab.seconds;
-                if(seconds<10){clock.color = "yellow"; clock.textColor = "red"};
-                if(seconds>10){clock.color = "white"; clock.textColor = clock.defaulttextColor};
-                if(seconds<=0){clock.color = "red"; clock.textColor = "white"; timerCountdown.stop(); playSound.play();myTab.timestamp = qsTr("STOP")}
+
+        Column{
+            id: buttons
+            width: parent.width
+            height: 100
+            anchors.top: spinners.bottom
+            TouchButton{
+                id: okButton
+                width: parent.width
+                height: 40
+                text: qsTr("OK")
+
+                onClicked: {
+                    if(fromNumberSpinner.value<toNumberSpinner.value){
+                        console.log("Interval set from "+fromNumberSpinner.value +" to " + toNumberSpinner.value)
+                        clockText.timetext = findRandomNumber(fromNumberSpinner.value,toNumberSpinner.value)
+                        picker.visible = false
+                        errorinterval.visible = false;
+                    }
+                    else{
+                        console.log("Error: The <b>to value</b> must be greater than the <b>from value</b>.")
+                        errorinterval.visible = true
+                    }
+
+                }
             }
-    }
+            Row{
+                height: 40
+                width: parent.width
+                TouchButton{
+                    text: qsTr("Cancel")
+                    width: parent.width*3/4
+                    onClicked: {
+                        picker.visible = false;
+                    }
+                }
+                TouchButton{
+                    text: qsTr("Reset")
+                    width: parent.width*1/4
+                    onClicked: {
+                        picker.visible = true;
+                        fromNumberSpinner.setValue = 0;
+                        toNumberSpinner.setValue = 0;
 
-    Audio {
-        id: playSound
-        source: "../sounds/phone-incoming-call.mp3"
-    }
+                    }
+                }
+            }
+            Rectangle{
+                id: errorinterval
+                width: parent.width
+                height: 25
+                color: "red"
+                visible: false;
 
-    function converttotime(secs) {
-        var totalSec = secs ;//new Date().getTime() / 1000;
-        var hours = parseInt( totalSec / 3600 ) % 24;
-        var minutes = parseInt( totalSec / 60 ) % 60;
-        var seconds = totalSec % 60;
+                Text{
+                    color: "white"
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    text: "Error: The <u><b>to</b></u> value must be greater than the <u><b>from</b></u> value"
+                }
+            }
+        }
 
-        //var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-        var result = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-        console.log(result);
-        timestamp = result;
-        return result;
+     }
+
+    function findRandomNumber(fromNumber, toNumber){
+        console.log("Finding random number between "+ fromNumber + " and " + toNumber)
+
+        //If fromNumber is zero, then the toNumber will be increased with 1.
+        if(fromNumber == 0){
+            toNumber = toNumber +1
+        }
+
+        var randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+
+        console.log("Found randomnumber: " + randomNumber  )
+
+        return randomNumber;
     }
 }
 
