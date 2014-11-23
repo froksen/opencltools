@@ -42,6 +42,10 @@
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation>Nulstil</translation>
+    </message>
 </context>
 <context>
     <name>DatabaseAdministration</name>
@@ -136,6 +140,54 @@
         <source>Open CL Tools</source>
         <translation type="vanished">Open CL Værktøjer</translation>
     </message>
+    <message>
+        <source>Random number</source>
+        <translation>Tilfældigt nummer</translation>
+    </message>
+</context>
+<context>
+    <name>RandomNumber</name>
+    <message>
+        <source>Random Number</source>
+        <translation>Tilfældigt nummer</translation>
+    </message>
+    <message>
+        <source>Set Interval</source>
+        <translation>Sæt interval</translation>
+    </message>
+    <message>
+        <source>New outcome</source>
+        <translation>Nyt udfald</translation>
+    </message>
+    <message>
+        <source>Allow the same outcome 
+to appear twice.</source>
+        <translation>Tillad det samme udfald to gange.</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Fra</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>Til</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuller</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Nulstil</translation>
+    </message>
+    <message>
+        <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
+        <translation>Fejl:  &lt;u&gt;&lt;b&gt;fra&lt;/b&gt;&lt;/u&gt; værdien skal være større end  &lt;u&gt;&lt;b&gt;til&lt;/b&gt;&lt;/u&gt; værdien</translation>
+    </message>
 </context>
 <context>
     <name>StartChooserByNumber</name>
@@ -201,7 +253,7 @@ to appear twice.</source>
     </message>
     <message>
         <source>New choice</source>
-        <translation>Nyt valg</translation>
+        <translation type="vanished">Nyt valg</translation>
     </message>
     <message>
         <source>choosing</source>
@@ -274,6 +326,10 @@ to appear twice.</source>
     <message>
         <source>Widest foot</source>
         <translation>Bredeste fod</translation>
+    </message>
+    <message>
+        <source>New outcome</source>
+        <translation>Nyt udfald</translation>
     </message>
 </context>
 <context>

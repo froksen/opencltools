@@ -38,6 +38,10 @@
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatabaseAdministration</name>
@@ -126,6 +130,54 @@
     </message>
     <message>
         <source>Start chooser (Number)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random number</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RandomNumber</name>
+    <message>
+        <source>Random Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set Interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New outcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow the same outcome 
+to appear twice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -256,15 +308,15 @@ to appear twice.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New choice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>choosing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Push the button &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New outcome</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
