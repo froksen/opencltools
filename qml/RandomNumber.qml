@@ -6,13 +6,57 @@ MyTab{
     id: myTab
     headertext: qsTr("Random Number")
     property int prevouiousOutcome: -1
+    property int seconds: 10
 
 
     ClockLayout{
         id: clockText
         anchors.top: topsection.bottom
         height: parent.height-topsection.height
-        timetext: "1"
+        timetext: ""
+
+
+        Rectangle{
+            id: cover
+            width: parent.width
+            height: parent.height
+            anchors.bottom: parent.bottom
+            color: "#fff";
+            z: 2
+            visible: false;
+            Text{
+                anchors.centerIn: parent
+                verticalAlignment: TextInput.AlignVCenter
+                horizontalAlignment: TextInput.AlignHCenter
+                width: 20
+                height: 20
+                font.capitalization: Font.AllUppercase
+                text: qsTr("choosing")
+                font.family: "Helvetica"
+                font.pointSize: 25
+                color: "white"
+            }
+        }
+
+        Timer {
+            id: blinkingTimer
+            interval: 200; running: false; repeat: true;
+            onTriggered: {seconds--;
+                    if(cover.color == "#ffffff"){
+                        cover.color = "lightgrey";
+                    }
+                    else {
+                        cover.color = "#ffffff"
+                    }
+
+                    if(seconds<=0){
+                        blinkingTimer.stop();console.log("Timer stopped"); cover.visible = false;
+                    }
+                    else {
+                        cover.visible = true;
+                    }
+                }
+        }
 
         Row{
             id: buttonsrow
@@ -33,6 +77,12 @@ MyTab{
                 enabled: fromNumberSpinner.value<toNumberSpinner.value ? true : false
 
                 onClicked: {
+                    if(checkCover.checked){
+                        seconds = 10;
+                        cover.visible = true;
+                        blinkingTimer.start()
+                    }
+
                     newOutcome();
                 }
             }
@@ -44,6 +94,13 @@ MyTab{
             width: 100
             text: qsTr("Allow the same outcome \nto appear twice.")
             checked: false
+        }
+        CheckBox{
+            id: checkCover
+            anchors.top: checkoutSameoutcome.bottom
+            width: 100
+            text: qsTr("Show cover on choosing.")
+            checked: true
         }
     }
 
@@ -119,7 +176,8 @@ MyTab{
                 enabled: fromNumberSpinner.value<toNumberSpinner.value ? true : false
 
                 onClicked: {
-                    newOutcome();
+                    picker.visible = false;
+                    //newOutcome();
                 }
             }
             Row{

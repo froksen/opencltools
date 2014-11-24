@@ -188,6 +188,14 @@ to appear twice.</source>
         <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
         <translation>Fejl:  &lt;u&gt;&lt;b&gt;fra&lt;/b&gt;&lt;/u&gt; værdien skal være større end  &lt;u&gt;&lt;b&gt;til&lt;/b&gt;&lt;/u&gt; værdien</translation>
     </message>
+    <message>
+        <source>choosing</source>
+        <translation>vælger</translation>
+    </message>
+    <message>
+        <source>Show cover on choosing.</source>
+        <translation>Skul ved valg</translation>
+    </message>
 </context>
 <context>
     <name>StartChooserByNumber</name>

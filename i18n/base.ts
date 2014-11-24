@@ -180,6 +180,14 @@ to appear twice.</source>
         <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>choosing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show cover on choosing.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StartChooserByNumber</name>
