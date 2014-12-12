@@ -9,6 +9,7 @@ Window {
     property color bgcolor: "white"
     property int maxPixelSize: Screen.desktopAvailableHeight
     property int textPixelsize: parent.width*0.45
+    //flags: Qt.WindowStaysOnTopHint
 
     width: 600
     minimumWidth: 240
@@ -41,6 +42,24 @@ Window {
             anchors.bottom: parent.bottom
             state: "windowed"
             radius: parent.radius
+        }
+        CheckBox{
+            id: stayontop_checkbox
+            z: 1
+            anchors.left: fullscreenicon_big.right
+            text: qsTr("Stay on top")
+            anchors.margins: 10
+            enabled: fullscreenicon_big.state == "fullscreen" ? false : true
+
+            onCheckedChanged: {
+                if(checked){
+                    stayontop(true)
+                }
+                else {
+                    stayontop(false)
+                }
+            }
+
         }
 
         states: [
@@ -117,5 +136,15 @@ Window {
     }
     function close(){
         visible = false
+    }
+    function stayontop(status){
+        if(status){
+            window.flags = Qt.WindowStaysOnTopHint
+        }
+        else {
+            console.log("Disable")
+            window.flags = 134279169;
+        }
+
     }
 }
