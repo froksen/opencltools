@@ -35,6 +35,7 @@ MyTab{
                 onClicked: {
                     picker.visible = true
                     timerCountdown.stop()
+
                 }
             }
             TouchButton{
@@ -49,6 +50,51 @@ MyTab{
                         if(!seconds<=0){
                             timerCountdown.start()
                          }
+                    }
+                }
+            }
+        }
+
+        Rectangle{
+            id:lightmodebutton
+            anchors.top: buttonsrow.bottom
+            width: 60
+            height: 25
+            color: "black"
+            radius: 360
+            border.color: "black"
+            state: "inactive"
+
+            Text{
+                id: lightmodetext
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                text: qsTr("Simple")
+                color: "white"
+            }
+
+            states: [
+                State {
+                    name: "active"
+                    PropertyChanges { target: lightmodebutton; color: "white"}
+                    PropertyChanges { target: lightmodetext; color: "black"}
+                },
+                State {
+                    name: "inactive"
+                    PropertyChanges { target: lightmodebutton; color: "black"}
+                    PropertyChanges { target: lightmodetext; color: "white"}
+                }
+            ]
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    if(!lightmode.visible){
+                        lightmode.open();
+                    }
+                    else{
+                        lightmode.close();
                     }
                 }
             }
@@ -107,6 +153,14 @@ MyTab{
         console.log(result);
         timestamp = result;
         return result;
+    }
+
+
+    LightMode{
+        id: lightmode
+        textvalue: timestamp
+        bgcolor: clock.color
+        textcolor: clock.textColor
     }
 }
 

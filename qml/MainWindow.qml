@@ -9,6 +9,9 @@ import QtQuick.Window 2.1  // needed for the Window component
 ApplicationWindow {
     property variant settingsdialog;
     property string windowtitleExtra: " "
+    //flags: Qt.SubWindow | Qt.Tool | Qt.FramelessWindowHint | Qt.WindowSystemMenuHint | Qt.WindowStaysOnTopHint
+    //flags: Qt.FramelessWindowHint
+
 
     id: mainWindow
     visible: true

@@ -29,5 +29,6 @@ OTHER_FILES += sounds/*.mp3 \
                images/*.png \
                i18n/*.qm\
                README.md \
+    qml/LightMode.qml
 
 RC_FILE = cltools.rc
