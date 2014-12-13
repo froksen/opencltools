@@ -84,7 +84,7 @@ Rectangle {
                 }
                 PropertyChanges {
                     target: notifyareatext
-                    color: "blue"
+                    color: "black"
                 }
             },
             State {

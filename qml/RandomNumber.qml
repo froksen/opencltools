@@ -71,6 +71,7 @@ MyTab{
                 }
             }
             TouchButton{
+                id: newoutcomeButton
                 width: parent.width/2
                 text: qsTr("New outcome")
                 enabled: fromNumberSpinner.value<toNumberSpinner.value ? true : false
@@ -81,6 +82,9 @@ MyTab{
                         cover.visible = true;
                         blinkingTimer.start()
                     }
+
+                    notifyerrortext = ""
+                    notifyerrorstate = "none"
 
                     newOutcome();
                 }
@@ -197,6 +201,11 @@ MyTab{
 
                 onClicked: {
                     picker.visible = false;
+                    if(clockText.timetext == ""){
+                        notifyerrortext = qsTr("Press '%1' for outcome").arg(newoutcomeButton.text)
+                        notifyerrorstate = "note"
+                    }
+
                     //newOutcome();
                 }
             }
