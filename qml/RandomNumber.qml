@@ -108,6 +108,16 @@ MyTab{
 
 
     //---------------------The Picker element---------------------
+    function checkInterval(){
+        if(fromNumberSpinner.value > toNumberSpinner.value){
+            notifyerrortext = qsTr("Error: The <u><b>to</b></u> value must be greater than the <u><b>from</b></u> value")
+            notifyerrorstate = "error"
+        }
+        else {
+            notifyerrortext = ""
+        }
+    }
+
     Rectangle {
         property int selectedtime: 0
         signal okclicked
@@ -139,6 +149,10 @@ MyTab{
                     id: fromNumberSpinner
                     width: parent.width
                     spinnermodel: 99
+
+                    onValueChanged: {
+                        checkInterval()
+                    }
                 }
 
             }
@@ -159,6 +173,10 @@ MyTab{
                     id: toNumberSpinner
                     width: parent.width
                     spinnermodel: 99
+
+                    onValueChanged: {
+                        checkInterval()
+                    }
                 }
             }
         }
