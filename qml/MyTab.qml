@@ -38,50 +38,64 @@ Rectangle {
             text: descriptiontext
         }*/
 
-        Rectangle{
-            id: notifyarea
-            width: parent.width
-            height: 15
-            anchors.bottom: parent.bottom
-            color: "yellow"
-            state: "note"
-
-            Text{
-                id: notifyareatext
-                text: "An error has happend"
-                font.pixelSize: parent.height
-                horizontalAlignment: TextInput.AlignHCenter
-            }
-
-            states: [
-                State {
-                    name: "error"
-                    PropertyChanges {
-                        target: notifyarea
-                        color: "red"
-                    }
-                    PropertyChanges {
-                        target: notifyareatext
-                        color: "white"
-                    }
-                },
-                State {
-                    name: "note"
-                    PropertyChanges {
-                        target: notifyarea
-                        color: "yellow"
-                    }
-                    PropertyChanges {
-                        target: notifyareatext
-                        color: "blue"
-                    }
-                }
-            ]
-        }
 
         gradient: Gradient {
                  GradientStop { position: 0.0; color: topSection.color }
                  GradientStop { position: 0.90; color: "black" }
         }
+    }
+
+    Rectangle{
+        id: notifyarea
+        width: parent.width
+        height: 20
+        anchors.bottom: parent.bottom
+        z: 10
+        color: "yellow"
+        state: "note"
+        anchors.bottomMargin: 5
+
+        Text{
+            id: notifyareatext
+            text: "An error has happend"
+            font.pixelSize: parent.height
+            horizontalAlignment: TextInput.AlignHCenter
+        }
+
+        states: [
+            State {
+                name: "error"
+                PropertyChanges {
+                    target: notifyarea
+                    color: "red"
+                }
+                PropertyChanges {
+                    target: notifyareatext
+                    color: "white"
+                }
+            },
+            State {
+                name: "note"
+                PropertyChanges {
+                    target: notifyarea
+                    color: "yellow"
+                }
+                PropertyChanges {
+                    target: notifyareatext
+                    color: "blue"
+                }
+            },
+            State {
+                name: "none"
+                PropertyChanges {
+                    target: notifyarea
+                    color: "transparent"
+                }
+                PropertyChanges {
+                    target: notifyareatext
+                    color: "transparent"
+                }
+            }
+        ]
     }
 }

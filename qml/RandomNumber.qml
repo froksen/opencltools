@@ -115,6 +115,7 @@ MyTab{
         }
         else {
             notifyerrortext = ""
+            notifyerrorstate = "none"
         }
     }
 
