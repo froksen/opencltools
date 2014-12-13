@@ -14,7 +14,7 @@ Rectangle {
     Rectangle{
         id: topSection
         width: parent.width
-        height: 45
+        height: 30
         color: "steelblue"
 
         Text {
@@ -23,7 +23,7 @@ Rectangle {
             //font.letterSpacing: parent.width/header.
             //font.family: "Helvetica"
             font.family: 'Titillium Web'
-            font.pointSize: 30*0.6
+            font.pointSize: parent.height*0.6
             font.capitalization: Font.AllUppercase
             color: "white"
             horizontalAlignment: TextInput.AlignHCenter
