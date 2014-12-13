@@ -58,8 +58,10 @@ Rectangle {
         Text{
             id: notifyareatext
             text: "An error has happend"
-            font.pixelSize: parent.height
+            font.pixelSize: parent.height - anchors.bottomMargin
             horizontalAlignment: TextInput.AlignHCenter
+            anchors.bottomMargin: 2
+            anchors.rightMargin: 2
         }
 
         states: [

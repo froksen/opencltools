@@ -8,7 +8,6 @@ MyTab{
     property int prevouiousOutcome: -1
     property int seconds: 10
 
-
     ClockLayout{
         id: clockText
         anchors.top: topsection.bottom
@@ -109,7 +108,7 @@ MyTab{
 
     //---------------------The Picker element---------------------
     function checkInterval(){
-        if(fromNumberSpinner.value > toNumberSpinner.value){
+        if(fromNumberSpinner.value >= toNumberSpinner.value){
             notifyerrortext = qsTr("Error: The <u><b>to</b></u> value must be greater than the <u><b>from</b></u> value")
             notifyerrorstate = "error"
         }
@@ -179,6 +178,8 @@ MyTab{
                         checkInterval()
                     }
                 }
+                Component.onCompleted: checkInterval();
+
             }
         }
 
@@ -274,6 +275,7 @@ MyTab{
 
         return randomNumber;
     }
+
 }
 
 
