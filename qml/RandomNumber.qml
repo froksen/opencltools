@@ -220,7 +220,7 @@ MyTab{
                     }
                 }
             }
-            Rectangle{
+            /*Rectangle{
                 id: errorinterval
                 width: parent.width
                 height: 25
@@ -232,7 +232,7 @@ MyTab{
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     text: qsTr("Error: The <u><b>to</b></u> value must be greater than the <u><b>from</b></u> value")
                 }
-            }
+            }*/
         }
 
      }

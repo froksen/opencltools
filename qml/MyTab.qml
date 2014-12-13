@@ -52,7 +52,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         z: 10
         color: "yellow"
-        state: "note"
+        state: "none"
         anchors.bottomMargin: 5
 
         Text{
