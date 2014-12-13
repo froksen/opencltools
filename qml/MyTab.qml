@@ -4,6 +4,8 @@ Rectangle {
     property string headertext: "Header Text"
     property string descriptiontext: "Here is a description"
     property alias topsection: topSection
+    property alias notifyerrortext: notifyareatext.text
+    property alias notifyerrorstate: notifyarea.state
 
     id: mytab
     anchors.fill: parent
@@ -42,13 +44,39 @@ Rectangle {
             height: 15
             anchors.bottom: parent.bottom
             color: "yellow"
+            state: "note"
 
             Text{
                 id: notifyareatext
-                text: "hello world"
+                text: "An error has happend"
                 font.pixelSize: parent.height
                 horizontalAlignment: TextInput.AlignHCenter
             }
+
+            states: [
+                State {
+                    name: "error"
+                    PropertyChanges {
+                        target: notifyarea
+                        color: "red"
+                    }
+                    PropertyChanges {
+                        target: notifyareatext
+                        color: "white"
+                    }
+                },
+                State {
+                    name: "note"
+                    PropertyChanges {
+                        target: notifyarea
+                        color: "yellow"
+                    }
+                    PropertyChanges {
+                        target: notifyareatext
+                        color: "blue"
+                    }
+                }
+            ]
         }
 
         gradient: Gradient {
