@@ -253,11 +253,11 @@ MyTab{
             console.log("Interval set from "+fromNumberSpinner.value +" to " + toNumberSpinner.value)
             clockText.timetext = findRandomNumber(fromNumberSpinner.value,toNumberSpinner.value)
             picker.visible = false
-            errorinterval.visible = false;
+            //errorinterval.visible = false;
         }
         else{
             console.log("Error: The <b>to value</b> must be greater than the <b>from value</b>.")
-            errorinterval.visible = true
+            //errorinterval.visible = true
         }
     }
 
