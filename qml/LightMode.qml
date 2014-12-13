@@ -10,6 +10,7 @@ Window {
     property int maxPixelSize: Screen.desktopAvailableHeight
     property int textPixelsize: parent.width*0.45
     //flags: Qt.WindowStaysOnTopHint
+    signal closing
 
     width: 600
     minimumWidth: 240
@@ -49,7 +50,7 @@ Window {
             anchors.left: fullscreenicon_big.right
             text: qsTr("Stay on top")
             anchors.margins: 10
-            enabled: fullscreenicon_big.state == "fullscreen" ? false : true
+            visible: fullscreenicon_big.state == "fullscreen" ? false : true
 
             onCheckedChanged: {
                 if(checked){
@@ -86,6 +87,7 @@ Window {
                     fullscreenicon_big.state = "windowed"
                 }
                 else {
+                    stayontop_checkbox.checked = false
                     fullscreenicon_big.state = "fullscreen"
                 }
             }
@@ -128,7 +130,10 @@ Window {
         onHeightChanged: {
             widthChanged();
         }
+
     }
+
+
 
 
     function open(){

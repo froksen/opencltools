@@ -79,6 +79,7 @@ MyTab{
                     name: "active"
                     PropertyChanges { target: lightmodebutton; color: "white"}
                     PropertyChanges { target: lightmodetext; color: "black"}
+
                 },
                 State {
                     name: "inactive"
@@ -92,9 +93,11 @@ MyTab{
                 onClicked: {
                     if(!lightmode.visible){
                         lightmode.open();
+                       // mainWindow.visible = false
                     }
                     else{
                         lightmode.close();
+                        mainWindow.visible = true
                     }
                 }
             }
@@ -161,6 +164,8 @@ MyTab{
         textvalue: timestamp
         bgcolor: clock.color
         textcolor: clock.textColor
+
+        onClosing:{ console.log("closing"); mainWindow.visible = true}
     }
 }
 

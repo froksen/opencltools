@@ -21,7 +21,6 @@ ApplicationWindow {
     minimumHeight: minimumWidth
     title: "Open CL Tools" + " " + windowtitleExtra
 
-
     /* The Menubar */
     menuBar: MenuBar {
         Menu {
