@@ -164,8 +164,6 @@ MyTab{
         textvalue: timestamp
         bgcolor: clock.color
         textcolor: clock.textColor
-
-        onClosing:{ console.log("closing"); mainWindow.visible = true}
     }
 }
 
