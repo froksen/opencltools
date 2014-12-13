@@ -12,7 +12,7 @@ Rectangle {
     Rectangle{
         id: topSection
         width: parent.width
-        height: 30
+        height: 45
         color: "steelblue"
 
         Text {
@@ -21,7 +21,7 @@ Rectangle {
             //font.letterSpacing: parent.width/header.
             //font.family: "Helvetica"
             font.family: 'Titillium Web'
-            font.pointSize: parent.height*0.6
+            font.pointSize: 30*0.6
             font.capitalization: Font.AllUppercase
             color: "white"
             horizontalAlignment: TextInput.AlignHCenter
@@ -35,6 +35,21 @@ Rectangle {
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: descriptiontext
         }*/
+
+        Rectangle{
+            id: notifyarea
+            width: parent.width
+            height: 15
+            anchors.bottom: parent.bottom
+            color: "yellow"
+
+            Text{
+                id: notifyareatext
+                text: "hello world"
+                font.pixelSize: parent.height
+                horizontalAlignment: TextInput.AlignHCenter
+            }
+        }
 
         gradient: Gradient {
                  GradientStop { position: 0.0; color: topSection.color }
