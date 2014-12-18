@@ -86,6 +86,7 @@ Window {
 
                 if(fullscreenicon_big.state == "fullscreen"){
                     fullscreenicon_big.state = "windowed"
+                    window.close();
                 }
                 else {
                     stayontop_checkbox.checked = false
