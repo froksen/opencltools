@@ -65,7 +65,7 @@ MyTab{
             anchors.margins: 5
             radius: 7
             anchors.top: buttonsrow.bottom
-            anchors.left: lightmodebutton.right
+            //anchors.left: lightmodebutton.right
 
 
 

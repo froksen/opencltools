@@ -4,9 +4,6 @@ Rectangle {
     property string headertext: "Header Text"
     property string descriptiontext: "Here is a description"
     property alias topsection: topSection
-    property alias notifyerrortext: notifyareatext.text
-    property alias notifyerrorstate: notifyarea.state
-
     id: mytab
     anchors.fill: parent
     color: "transparent"
@@ -99,5 +96,20 @@ Rectangle {
                 }
             }
         ]
+    }
+
+    function notifymsg(text){
+        notifyareatext.text = text
+        notifyarea.state = "note"
+    }
+
+    function errormsg(text){
+        notifyareatext.text = qsTr("Error")+": "+text
+        notifyarea.state = "error"
+    }
+
+    function clearmsg(){
+        notifyareatext.text = ""
+        notifyarea.state = "none"
     }
 }
