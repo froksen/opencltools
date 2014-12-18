@@ -225,6 +225,10 @@ MyTab{
         textvalue: timestamp
         bgcolor: clock.color
         textcolor: clock.textColor
+        x: mainWindow.x
+        y: mainWindow.y
+        width: mainWindow.width
+        height: mainWindow.height
 
         onClosing: {stayontop_checkbox.checked = false}
     }
