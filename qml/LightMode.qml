@@ -11,6 +11,7 @@ Window {
     property int textPixelsize: parent.width*0.45
     //flags: Qt.WindowStaysOnTopHint
     signal closing
+    property alias windowstate: fullscreenicon_big.state
 
     width: 600
     minimumWidth: 240

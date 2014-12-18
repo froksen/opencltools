@@ -93,12 +93,49 @@ MyTab{
                 onClicked: {
                     if(!lightmode.visible){
                         lightmode.open();
-                       // mainWindow.visible = false
+                        //mainWindow.visible = false
                     }
                     else{
                         lightmode.close();
                         mainWindow.visible = true
                     }
+                }
+            }
+        }
+
+        Rectangle{
+            id: fullscreenicon_big
+            width: 60
+            height: 30
+            color: "white"
+            border.color: "black"
+            z:1
+            anchors.margins: 5
+            radius: 7
+            anchors.top: buttonsrow.bottom
+            anchors.left: lightmodebutton.right
+
+
+
+            Rectangle{
+                id: fullscreenicon_small
+                width: parent.width/2
+                height: parent.height/2
+                color: "black"
+                border.color: "black"
+                anchors.left: parent.left
+                anchors.margins: 3
+                anchors.bottom: parent.bottom
+                state: "windowed"
+                radius: parent.radius
+            }
+
+            MouseArea{
+                anchors.fill: parent
+
+                onClicked: {
+                    lightmode.open();
+                    lightmode.windowstate = "fullscreen"
                 }
             }
         }
