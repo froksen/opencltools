@@ -269,12 +269,12 @@ MyTab{
             toNumber = toNumber +1
         }
 
-        var randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+        var randomNumber =  Math.floor((Math.random() * (toNumber - fromNumber + 1)) + fromNumber);
 
         if(!checkoutSameoutcome.checked){
             while(prevouiousOutcome == randomNumber){
                 console.log("Outcome: " + randomNumber + " has was also the previous outcome. Finding new"  )
-                randomNumber =  Math.floor((Math.random() * toNumber) + fromNumber);
+                randomNumber =  Math.floor((Math.random() * (toNumber - fromNumber + 1)) + fromNumber);
             }
         }
 
