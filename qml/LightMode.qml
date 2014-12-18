@@ -12,6 +12,7 @@ Window {
     //flags: Qt.WindowStaysOnTopHint
     signal closing
     property alias windowstate: fullscreenicon_big.state
+    property alias windowstayontop: stayontop_checkbox.checked
 
     width: 600
     minimumWidth: 240
@@ -59,9 +60,9 @@ Window {
                 }
                 else {
                     stayontop(false)
+                    closing();
                 }
             }
-
         }
 
         states: [

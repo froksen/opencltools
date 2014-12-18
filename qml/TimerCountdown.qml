@@ -55,6 +55,7 @@ MyTab{
             }
         }
 
+
         /*Rectangle{
             id:lightmodebutton
             anchors.top: buttonsrow.bottom
@@ -140,6 +141,29 @@ MyTab{
             }
         }
 
+        CheckBox{
+            id: stayontop_checkbox
+            z: 1
+            anchors.left: fullscreenicon_big.right
+            anchors.top: buttonsrow.bottom
+            text: qsTr("Stay on top")
+            anchors.margins: 10
+            visible: fullscreenicon_big.state == "fullscreen" ? false : true
+
+            onCheckedChanged: {
+                if(checked){
+                    lightmode.open()
+                    lightmode.windowstayontop = true
+                    mainWindow.hide()
+                }
+                else {
+                    lightmode.close()
+                    lightmode.windowstayontop = false
+                    mainWindow.show()
+                }
+            }
+        }
+
         ClockPicker{
             id: picker
             anchors.verticalCenter: parent.verticalCenter
@@ -201,6 +225,8 @@ MyTab{
         textvalue: timestamp
         bgcolor: clock.color
         textcolor: clock.textColor
+
+        onClosing: {stayontop_checkbox.checked = false}
     }
 }
 
