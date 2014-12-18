@@ -55,55 +55,6 @@ MyTab{
             }
         }
 
-
-        /*Rectangle{
-            id:lightmodebutton
-            anchors.top: buttonsrow.bottom
-            width: 60
-            height: 25
-            color: "black"
-            radius: 360
-            border.color: "black"
-            state: "inactive"
-
-            Text{
-                id: lightmodetext
-                anchors.fill: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                text: qsTr("Simple")
-                color: "white"
-            }
-
-            states: [
-                State {
-                    name: "active"
-                    PropertyChanges { target: lightmodebutton; color: "white"}
-                    PropertyChanges { target: lightmodetext; color: "black"}
-
-                },
-                State {
-                    name: "inactive"
-                    PropertyChanges { target: lightmodebutton; color: "black"}
-                    PropertyChanges { target: lightmodetext; color: "white"}
-                }
-            ]
-
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    if(!lightmode.visible){
-                        lightmode.open();
-                        //mainWindow.visible = false
-                    }
-                    else{
-                        lightmode.close();
-                        mainWindow.visible = true
-                    }
-                }
-            }
-        }*/
-
         Rectangle{
             id: fullscreenicon_big
             width: 60

@@ -13,6 +13,14 @@ MyTab{
     LightMode{
         id: lightmode
         textvalue: clock.timetext
+        bgcolor: clock.color
+        textcolor: clock.textColor
+        x: mainWindow.x
+        y: mainWindow.y
+        width: mainWindow.width
+        height: mainWindow.height
+
+        onClosing: {stayontop_checkbox.checked = false}
     }
 
     ClockLayout{
@@ -46,49 +54,65 @@ MyTab{
             }
         }
         Rectangle{
-            id:lightmodebutton
-            anchors.top: buttonsrow.bottom
+            id: fullscreenicon_big
             width: 60
-            height: 25
-            color: "black"
-            radius: 360
+            height: 30
+            color: "white"
             border.color: "black"
-            state: "inactive"
+            z:1
+            anchors.margins: 5
+            radius: 7
+            anchors.top: buttonsrow.bottom
+            anchors.left: lightmodebutton.right
 
-            Text{
-                id: lightmodetext
-                anchors.fill: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                text: qsTr("Simple")
-                color: "white"
+
+
+            Rectangle{
+                id: fullscreenicon_small
+                width: parent.width/2
+                height: parent.height/2
+                color: "black"
+                border.color: "black"
+                anchors.left: parent.left
+                anchors.margins: 3
+                anchors.bottom: parent.bottom
+                state: "windowed"
+                radius: parent.radius
             }
-
-            states: [
-                State {
-                    name: "active"
-                    PropertyChanges { target: lightmodebutton; color: "white"}
-                    PropertyChanges { target: lightmodetext; color: "black"}
-                },
-                State {
-                    name: "inactive"
-                    PropertyChanges { target: lightmodebutton; color: "black"}
-                    PropertyChanges { target: lightmodetext; color: "white"}
-                }
-            ]
 
             MouseArea{
                 anchors.fill: parent
+
                 onClicked: {
-                    if(!lightmode.visible){
-                        lightmode.open();
-                    }
-                    else{
-                        lightmode.close();
-                    }
+                    lightmode.open();
+                    lightmode.windowstate = "fullscreen"
                 }
             }
         }
+
+        CheckBox{
+            id: stayontop_checkbox
+            z: 1
+            anchors.left: fullscreenicon_big.right
+            anchors.top: buttonsrow.bottom
+            text: qsTr("Stay on top")
+            anchors.margins: 10
+            visible: fullscreenicon_big.state == "fullscreen" ? false : true
+
+            onCheckedChanged: {
+                if(checked){
+                    lightmode.open()
+                    lightmode.windowstayontop = true
+                    mainWindow.hide()
+                }
+                else {
+                    lightmode.close()
+                    lightmode.windowstayontop = false
+                    mainWindow.show()
+                }
+            }
+        }
+
         id: clock
         anchors.top: topsection.bottom
         timetext: converttotime(seconds)
