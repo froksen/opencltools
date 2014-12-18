@@ -55,7 +55,7 @@ MyTab{
             }
         }
 
-        Rectangle{
+        /*Rectangle{
             id:lightmodebutton
             anchors.top: buttonsrow.bottom
             width: 60
@@ -101,7 +101,7 @@ MyTab{
                     }
                 }
             }
-        }
+        }*/
 
         Rectangle{
             id: fullscreenicon_big
