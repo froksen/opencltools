@@ -21,6 +21,8 @@ ApplicationWindow {
     minimumHeight: minimumWidth
     title: "Open CL Tools" + " " + windowtitleExtra
 
+
+
     /* The Menubar */
     menuBar: MenuBar {
         Menu {
@@ -41,6 +43,22 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("Exit")
                 onTriggered: Qt.quit();
+            }
+        }
+        Menu{
+            title: qsTr("View")
+            MenuItem{
+                text: mainWindow.visibility != 5 ? qsTr("Fullscreen") : qsTr("Windowed")
+                onTriggered: {
+                    if(mainWindow.visibility != 5){
+                        mainWindow.visibility = "FullScreen"
+                    }
+                    else {
+                        mainWindow.visibility = "Windowed"
+                    }
+
+                    console.log(mainWindow.visibility)
+                }
             }
         }
     }
@@ -107,3 +125,4 @@ ApplicationWindow {
         id: settingsdialog
     }*/
 }
+
