@@ -1,0 +1,30 @@
+0.25
+- Added: Fullscreen-mode - displaying the window in fullscreen
+- Added: Simple-mode - view some tools in a simple way, and/or display this in fullscreen
+- Changed: New way of displaying notifications/errors
+- Fixed: Randomnumber can be outside interval
+- Other: Updated translations
+- Other: Minor cleaing up.
+
+
+0.20
+* Better random selection.
+* In "Start chooser(Number)" its possible to avoid that the same outcome will happen twice in a row.
+* Added a new tab. Possible to find a random number between a user defined interval, 0 and 99 etc.
+* Minor layout changes
+
+0.16:
+* Updated About/Credits dialog with better layout, and more information.
+* Add new application logo by 'gnastyle'.
+* Start Chooser by number: Bord with four fields, is now also round.
+* Start Chooser by number: Added a smooth animation when the arrow is rotating.
+* Minor "under-the-hood" improvements. 
+
+0.15:
+* Added a "nail" to the arrow in "Start Chooser (Number)
+* Clock-text now follow application with rather than height.
+* Clock-text is now black instead of red
+* Updated translations
+* Minor fixes in layout
+
+0.1: First release
