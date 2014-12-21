@@ -107,6 +107,13 @@
     </message>
 </context>
 <context>
+    <name>LightMode</name>
+    <message>
+        <source>Stay on top</source>
+        <translation>Forbliv øverst</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Files</source>
@@ -143,6 +150,25 @@
     <message>
         <source>Random number</source>
         <translation>Tilfældigt nummer</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>Vis</translation>
+    </message>
+    <message>
+        <source>Fullscreen</source>
+        <translation>Fuldskærm</translation>
+    </message>
+    <message>
+        <source>Windowed</source>
+        <translation>Vindue</translation>
+    </message>
+</context>
+<context>
+    <name>MyTab</name>
+    <message>
+        <source>Error</source>
+        <translation>Fejl</translation>
     </message>
 </context>
 <context>
@@ -186,7 +212,7 @@ to appear twice.</source>
     </message>
     <message>
         <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
-        <translation>Fejl:  &lt;u&gt;&lt;b&gt;fra&lt;/b&gt;&lt;/u&gt; værdien skal være større end  &lt;u&gt;&lt;b&gt;til&lt;/b&gt;&lt;/u&gt; værdien</translation>
+        <translation type="vanished">Fejl:  &lt;u&gt;&lt;b&gt;fra&lt;/b&gt;&lt;/u&gt; værdien skal være større end  &lt;u&gt;&lt;b&gt;til&lt;/b&gt;&lt;/u&gt; værdien</translation>
     </message>
     <message>
         <source>choosing</source>
@@ -195,6 +221,14 @@ to appear twice.</source>
     <message>
         <source>Show cover on choosing.</source>
         <translation>Skul ved valg</translation>
+    </message>
+    <message>
+        <source>The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
+        <translation>&lt;u&gt;&lt;b&gt;Fra&lt;/b&gt;&lt;/u&gt; værdien skal være større end  &lt;u&gt;&lt;b&gt;til&lt;/b&gt;&lt;/u&gt; værdien</translation>
+    </message>
+    <message>
+        <source>Press &apos;%1&apos; for outcome</source>
+        <translation>Try på &apos;%1&apos; for udfald</translation>
     </message>
 </context>
 <context>
@@ -358,6 +392,10 @@ to appear twice.</source>
         <source>STOP</source>
         <translation>STOP</translation>
     </message>
+    <message>
+        <source>Stay on top</source>
+        <translation>Forbliv øverst</translation>
+    </message>
 </context>
 <context>
     <name>TimerStopwatch</name>
@@ -372,6 +410,10 @@ to appear twice.</source>
     <message>
         <source>Start/Pause</source>
         <translation>Start/Pause</translation>
+    </message>
+    <message>
+        <source>Stay on top</source>
+        <translation>Forbliv øverst</translation>
     </message>
 </context>
 </TS>

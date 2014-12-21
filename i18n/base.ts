@@ -103,6 +103,13 @@
     </message>
 </context>
 <context>
+    <name>LightMode</name>
+    <message>
+        <source>Stay on top</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Files</source>
@@ -134,6 +141,25 @@
     </message>
     <message>
         <source>Random number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fullscreen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Windowed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MyTab</name>
+    <message>
+        <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -177,15 +203,19 @@ to appear twice.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error: The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>choosing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show cover on choosing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The &lt;u&gt;&lt;b&gt;to&lt;/b&gt;&lt;/u&gt; value must be greater than the &lt;u&gt;&lt;b&gt;from&lt;/b&gt;&lt;/u&gt; value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press &apos;%1&apos; for outcome</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -346,6 +376,10 @@ to appear twice.</source>
         <source>STOP</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stay on top</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TimerStopwatch</name>
@@ -359,6 +393,10 @@ to appear twice.</source>
     </message>
     <message>
         <source>Start/Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stay on top</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
