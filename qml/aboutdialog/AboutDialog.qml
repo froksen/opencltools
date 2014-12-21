@@ -45,7 +45,7 @@ Window {
         }
         Text{
             width: parent.width
-            text: "<b>"+qsTr("Version")+"</b>" + ": 0.2"
+            text: "<b>"+qsTr("Version")+"</b>" + ": 0.25"
         }
         Text{
             width: parent.width
